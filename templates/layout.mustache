@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{#title}}{{title}} &mdash; {{/title}}{{ site }}{{#section}} {{ section }}{{/section}}</title>
+
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body class="{{ type }}">
+<div id="wrap">
+
+<div id="header">
+	<h1>{{ site }} {{ section }}</h1>
+	{{{ header }}}
+</div>
+
+<div id="main">
+
+{{{ yield }}}
+
+</div>
+
+<div id="related">
+	<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/s">Search</a></li>
+    <li><a href="/ov">Overviewer</a></li>
+  </ul>
+</div>
+
+<div id="footer">
+Design copyright &copy; 2012 <a href="https://duckinator.net">Nick Markwell</a>.
+Contact via <a href="https://twitter.com/_inatri">Twitter</a>.
+</div>
+
+</div>
+</body>
+</html>
