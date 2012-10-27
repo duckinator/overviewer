@@ -212,9 +212,10 @@ p {
 
 #searchbar form {
 	width: 100%;
+	position: relative;
 }
 
-#searchbar .icon-overlay.gray-input, #q, #searchbar .submit {
+#q, #searchbar .submit {
 	float: left;
 }
 
@@ -252,7 +253,8 @@ button {
 .icon-overlay {
     z-index: 3;
     position: absolute;
-    margin: 9px 0 0 7px;
+	left: 0;
+    margin: 6px 0 0 7px;
 }
 
 .gray-input {
