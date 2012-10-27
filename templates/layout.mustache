@@ -34,7 +34,7 @@
 {{#search?}}
 <div id="searchbar">
   <form action="{{ search_submit_url }}" method="GET">
-    <input type="text" id="q" name="q" value="{{ query }}"><button type="submit"><i class="icon-search"></i> Search</button>
+    <i class="icon-search"></i> <input type="text" id="q" name="q" value="{{ query }}"><button type="submit">Search <i class="icon-chevron-right"></i></button>
   </form>
 </div>
 {{/search?}}

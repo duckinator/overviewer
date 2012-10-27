@@ -218,5 +218,6 @@ button {
 	padding: 5px;
 	background: lightgrey;
 	border: 1px solid black;
+  border-left: none;
 }
 
