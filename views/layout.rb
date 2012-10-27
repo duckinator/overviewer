@@ -2,7 +2,7 @@ class Inatri
   module Views
     class Layout < Mustache
       def site
-        'inatri'
+        'Inatri'
       end
 
       def title
