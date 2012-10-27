@@ -62,12 +62,15 @@ figcaption {
 h1, h2, h3, h4, h5 {
 	padding: 0;
 	margin: 0;
+}
+
+h1, h2, h3, h4, h5, .eox {
 	font-family: 'Exo', sans-serif;
 }
 
 h1 { font-size: 2em; }
-h2 { font-size: 1.7em; }
-h3 { font-size: 1.5em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
 h4 { font-size: 1.2em; }
 h5 { font-size: 1.1em; }
 
@@ -121,6 +124,7 @@ p {
 
 #header .sections {
 	text-align: right;
+	font-size: 1.2em;
 }
 
 
