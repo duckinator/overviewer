@@ -106,8 +106,9 @@ p {
 	text-decoration: none;
 }
 
-#header a:hover {
-	text-decoration: underline;
+#header li a:hover {
+    text-decoration: none !important;
+    color: #dddddd;
 }
 
 #header {
@@ -117,6 +118,9 @@ p {
 	background: #166491;
 	position: relative;
 	line-height: 40px;
+  -moz-box-shadow: 0 2px 2px #888888;
+  -webkit-box-shadow: 0 2px 2px #888888;
+  box-shadow: 0 2px 2px #888888;
 }
 
 #header h1 {
@@ -172,10 +176,10 @@ p {
 	color: black;
 }
 
-.inline-list li a:hover span {
+/** TODO: This doesn't seem to actually work; why? */
+#main .inline-list li a:hover span, #footer .inline-list li a:hover span {
 	text-decoration: underline;
 }
-
 
 /* search */
 
