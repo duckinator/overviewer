@@ -12,6 +12,14 @@ class Inatri
       def section
         nil
       end
+
+      def search_submit_url
+        '/' + section
+      end
+
+      def search?
+        false
+      end
     end
   end
 end

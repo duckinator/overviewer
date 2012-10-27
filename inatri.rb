@@ -19,4 +19,10 @@ class Inatri < Sinatra::Application
 
     mustache :search
   end
+
+  get '/overviewer' do
+    @query = 'hello world'
+
+    mustache :overviewer
+  end
 end

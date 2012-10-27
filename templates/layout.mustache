@@ -23,13 +23,21 @@
   <div class="constraint">
     <h1><a href="/">{{ site }}.</a></h1>
     <ul class="sections inline-list eox">
-    	<li><i class="icon-search"></i> <a href="/search"><span>search</span></a></li>
-      <li><i class="icon-list-ul"></i> <a href="/overviewer"><span>overviewer</span></a></li>
+    	<li><a href="/search"><i class="icon-search"></i> <span>search</span></a></li>
+      <li><a href="/overviewer"><i class="icon-list-ul"></i> <span>overviewer</span></a></li>
     </ul>
   </div>
 </div>
 
 <div id="main" class="constraint">
+
+{{#search?}}
+<div id="searchbar">
+  <form action="{{ search_submit_url }}" method="GET">
+    <input type="text" id="q" name="q" value="{{ query }}"><button type="submit"><i class="icon-search"></i> Search</button>
+  </form>
+</div>
+{{/search?}}
 
 {{{ yield }}}
 

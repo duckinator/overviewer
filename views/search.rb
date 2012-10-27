@@ -11,8 +11,8 @@ class Inatri
         'search'
       end
 
-      def related
-        'Related.'
+      def search?
+        true
       end
     end
   end
