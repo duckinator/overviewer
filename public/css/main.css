@@ -26,6 +26,7 @@ html, body {
 	padding: 0;
 	height: 100%;
 	font-family: 'Droid Sans', sans-serif;
+	background: #F8F8F8;
 }
 
 blockquote {
@@ -99,7 +100,6 @@ p {
 #wrap {
 	position: relative;
 	min-height: 100%;
-	background: #F8F8F8;
 }
 
 #wrap > * {
@@ -160,8 +160,10 @@ p {
 	border-top: 1px solid #ccc;
 }
 
-#footer li.copyright {
-	float: right;
+@media(min-width: 960px) {
+	#footer li.copyright {
+		float: right;
+	}
 }
 
 .inline-list {
