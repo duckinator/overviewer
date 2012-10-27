@@ -191,8 +191,12 @@ p {
 
 /* search */
 
+/* Argh, I hate this. */
+.clearfix { clear: both }
+
 #searchbar {
 	width: 100%;
+	overflow-x: auto;
 }
 
 #searchbar form > * {
@@ -203,9 +207,13 @@ p {
 	width: 100%;
 }
 
+#searchbar .icon-overlay.gray-input, #q, #searchbar .submit {
+	float: left;
+}
+
 #q {
 	max-width: 600px;
-	width: 80%;
+	width: 70%;
   padding-left: 24px;
 }
 

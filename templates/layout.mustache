@@ -37,7 +37,8 @@
     <span class="icon-overlay gray-input">
       <i class="icon-search"></i>
     </span>
-    <input type="text" id="q" name="q" {{#query}}value="{{ query }}"{{/query}} placeholder="Search..." class="gray-input"><button type="submit">Search <i class="icon-chevron-right"></i></button>
+    <input type="text" id="q" name="q" {{#query}}value="{{ query }}"{{/query}} placeholder="Search..." class="gray-input"><button class="submit" type="submit">Search <i class="icon-chevron-right"></i></button>
+    <div class="clearfix"></div>
   </form>
 </div>
 {{/search?}}
