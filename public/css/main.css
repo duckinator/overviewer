@@ -4,6 +4,14 @@
 	box-sizing:border-box;
 }
 
+a, a:visited {
+	color: #166491;
+}
+
+a:active, a:focus, a:hover {
+	color: #2197db;
+}
+
 /*
  * See https://developer.mozilla.org/en/Images,_Tables,_and_Mysterious_Gaps
  *+ for why this is needed. (it doesn't apply to just tables)
