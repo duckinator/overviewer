@@ -106,8 +106,8 @@ p {
 	text-decoration: none;
 }
 
-#header li a:hover {
-    text-decoration: none !important;
+#header .inline-list li a:hover span {
+    text-decoration: none;
     color: #dddddd;
 }
 
@@ -177,7 +177,7 @@ p {
 }
 
 /** TODO: This doesn't seem to actually work; why? */
-#main .inline-list li a:hover span, #footer .inline-list li a:hover span {
+.inline-list li a:hover span {
 	text-decoration: underline;
 }
 
