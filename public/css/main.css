@@ -194,6 +194,7 @@ p {
 #q {
 	max-width: 600px;
 	width: 80%;
+  padding-left: 24px;
 }
 
 input[type=text] {
@@ -218,5 +219,15 @@ button {
 	padding: 5px;
 	background: lightgrey;
 	border: 1px solid black;
+  border-left: none;
 }
 
+.icon-overlay {
+    z-index: 3;
+    position: absolute;
+    margin: 9px 0 0 7px;
+}
+
+.gray-input {
+    color: #333333;
+}

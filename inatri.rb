@@ -15,14 +15,12 @@ class Inatri < Sinatra::Application
   end
 
   get '/search' do
-    @query = 'example'
-
+    @query = params[:q]
     mustache :search
   end
 
   get '/overviewer' do
-    @query = 'hello world'
-
+    @query = params[:q]
     mustache :overviewer
   end
 end
