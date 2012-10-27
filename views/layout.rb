@@ -10,15 +10,7 @@ class Inatri
       end
 
       def section
-        ''
-      end
-
-      def related
-        'Related.'
-      end
-
-      def header
-        ''
+        nil
       end
     end
   end

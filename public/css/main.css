@@ -13,22 +13,17 @@ img {
 	vertical-align: bottom;
 }
 
-#wrap, body {
+html, body {
 	margin: 0;
 	padding: 0;
-}
-
-#wrap > * {
-	padding: 10px;
+	height: 100%;
+	font-family: 'Droid Sans', sans-serif;
 }
 
 blockquote {
 	position: relative;
-
 	margin: 10px;
-
 	padding: 0 2.5em;
-
 	font-style: italic;
 }
 
@@ -64,100 +59,110 @@ figcaption {
 	font-style: italic;
 }
 
-#footer {
-	font-size: 0.8em;
-	/*border-top: 1px solid black;*/
-	margin-top: 100px;
-	clear: both;
-}
-
-#main {
-	float: left;
-	width: 75%;
-/*  border-top: 1px solid black;
-  border-right: 1px solid black;*/
-}
-
-#related {
-	float: left;
-	width: 25%;
-	border: none;
-	/*border-left: 1px solid black;*/
-	border-radius: 0 0 0 2em;
-  min-height: 8em;/* HACK */
-}
-
-/* The fun backwards curve */
-#related::before{
-	content: ' ';
-	position: absolute;
-	width: 4em;
-	height: 4em;
+h1, h2, h3, h4, h5 {
 	padding: 0;
 	margin: 0;
-	margin-top: -30px;
-	margin-left: -4.6em;
-	border-radius: 0 4em 0 0;
-	border-top: 20px solid #eee;
-	border-right: 20px solid #eee;
-	z-index: -1;
+	font-family: 'Exo', sans-serif;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.1em; }
+
+#main {
+	margin: 1em auto;
+}
+
+p {
+	margin: 1em 0;
+	padding: 0;
+}
+
+.constraint {
+	max-width: 960px;
+	margin: auto;
+}
+
+#wrap {
+	position: relative;
+	min-height: 100%;
+}
+
+#wrap > * {
+	padding: 10px;
+}
+
+#header, #header a {
+	color: white;
+}
+
+#header a {
+	text-decoration: none;
+}
+
+#header a:hover {
+	text-decoration: underline;
 }
 
 #header {
-	margin: 0px;
+	margin: 0;
+	padding: 0;
 	border: none;
-	/*border-bottom: 1px solid black;*/
+	background: #166491;
+	position: relative;
+	line-height: 40px;
 }
 
 #header h1 {
-	margin: 0;
-	padding: 0 10px;
-}
-
-#header, #related {
-	background: #eee;
-}
-
-.category #related {
-	background: white;
-	float: none;
-	width: 100%;
-	border-left: none;
-}
-
-.related {
-	clear: both;
-	list-style: none;
-}
-
-.related .icon {
-	display: none;
-
 	float: left;
-	padding: 10px;
+}
+
+#header .sections {
+	text-align: right;
+}
+
+
+#main {
+	padding: 0;
+	padding-bottom: 40px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	height: 40px;
+	width: 100%;
+	font-size: 0.8em;
+	border-top: 1px solid #ccc;
+}
+
+#footer li.copyright {
+	float: right;
+}
+
+.inline-list {
+	position: relative;
+	padding: 0;
+	margin: auto;
+}
+
+.inline-list li {
+	display: inline-block;
 	margin: 0;
-
-	height: 90px;
-	width: 90px;
-
-	text-align: center;
+	padding-right: 1em;
 }
 
-.category .related .icon {
-	display: inline-block;
+.inline-list li a {
+	text-decoration: none;
 }
 
-.related .icon img {
-	outline: none;
-
-	max-height: 70px;
-	max-width: 70px;
+.inline-list li a i {
+	/* icons */
+	color: black;
+}
+.inline-list li a:hover span {
+	text-decoration: underline;
 }
 
-.related .result {
-	display: inline-block;
-}
-
-.category .related .result {
-	display: inline;
-}
