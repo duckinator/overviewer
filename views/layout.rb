@@ -9,6 +9,10 @@ class Inatri
         @title
       end
 
+      def query?
+        @query && @query.is_a?(String) && !@query.empty?
+      end
+
       def section
         nil
       end
