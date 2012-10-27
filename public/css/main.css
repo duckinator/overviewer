@@ -121,7 +121,8 @@ p {
 
 #header {
 	margin: 0;
-	padding: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 	border: none;
 	background: #166491;
 	position: relative;
@@ -146,7 +147,7 @@ p {
 
 
 #main {
-	padding: 0;
+	padding-top: 0px;
 	padding-bottom: 40px;
 }
 
