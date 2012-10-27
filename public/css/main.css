@@ -91,6 +91,7 @@ p {
 #wrap {
 	position: relative;
 	min-height: 100%;
+	background: #F8F8F8;
 }
 
 #wrap > * {
