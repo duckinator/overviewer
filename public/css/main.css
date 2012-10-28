@@ -192,7 +192,6 @@ p {
 	color: black;
 }
 
-/** TODO: This doesn't seem to actually work; why? */
 .inline-list li a:hover span {
 	text-decoration: underline;
 }
@@ -209,6 +208,7 @@ p {
 
 #searchbar form > * {
 	font-size: 1.1em;
+	line-height: 1em;
 }
 
 #searchbar form {
@@ -216,14 +216,34 @@ p {
 	position: relative;
 }
 
-#q, #searchbar .submit {
+#searchbar .search-wrap {
+	position: relative;
+	background: white;
+	border: 1px solid black;
+	max-width: 620px;
+}
 
+#searchbar .icon-search {
+	position: absolute;
+	left: 0;
+	padding: 0 3px;
+	max-width: 20px;
+	margin-top: 2px;
 }
 
 #q {
-	max-width: 600px;
-	width: 70%;
-  padding-left: 24px;
+	padding-left: 26px; /* 20px wide (icon) + 6px left/right margins (icon) */
+	padding-right: 10em;
+	border: none;
+	width: 100%;
+	outline: none;
+}
+
+#searchbar .submit {
+	border: none;
+	position: absolute;
+	right: 0;
+	padding: 5px 1em;
 }
 
 input[type=text] {
@@ -251,10 +271,8 @@ button {
   border-left: none;
 }
 
-.icon-overlay {
-    z-index: 3;
-    position: absolute;
-    margin: 3px 0 0 7px;
+.icon-overlay .icon-search {
+	margin-right: -5px;
 }
 
 .gray-input {
