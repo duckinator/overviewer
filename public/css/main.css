@@ -270,12 +270,22 @@ button {
 .opensans { font-family: 'Open Sans', sans-serif; }
 h1.opensans {
     font-weight: 400;
-    font-size: 4em;
+    font-size: 3em;
     letter-spacing: -3px;
 }
 h2.opensans {
     font-weight: 300;
-    font-size: 1.9em;
+    font-size: 1.5em;
     letter-spacing: -1px;
     color: #888888;
+}
+
+@media(min-width: 960px) {
+	h1.opensans {
+		font-size: 4em;
+	}
+
+	h2.opensans {
+		font-size: 1.9em;
+	}
 }
