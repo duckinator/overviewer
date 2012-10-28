@@ -219,7 +219,7 @@ p {
 #searchbar .search-wrap {
 	position: relative;
 	background: white;
-	border: 1px solid black;
+	border: 1px solid lightgrey;
 	max-width: 620px;
 }
 
