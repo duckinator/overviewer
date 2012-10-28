@@ -29,7 +29,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	font-family: 'Droid Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	background: #F8F8F8;
 }
 
@@ -217,7 +217,7 @@ p {
 }
 
 #q, #searchbar .submit {
-	float: left;
+
 }
 
 #q {
@@ -254,10 +254,28 @@ button {
 .icon-overlay {
     z-index: 3;
     position: absolute;
-	left: 0;
     margin: 6px 0 0 7px;
 }
 
 .gray-input {
     color: #333333;
+}
+
+#searchbar.topmargin { margin-top: 15px; }
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.opensans { font-family: 'Open Sans', sans-serif; }
+h1.opensans {
+    font-weight: 400;
+    font-size: 4em;
+    letter-spacing: -3px;
+}
+h2.opensans {
+    font-weight: 300;
+    font-size: 1.9em;
+    letter-spacing: -1px;
+    color: #888888;
 }
