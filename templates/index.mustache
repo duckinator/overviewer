@@ -1,2 +1,15 @@
-<p>Inatri is an attempt at creating a fully open source web crawler, and building various utilities on top of that, including a <a href="/search">search engine</a>.</p>
-<p>Want to help out? You can get hold of us via any of the various methods listed in the footer.</p>
+<h1 align="center" class="opensans">Search freely.</h1>
+<h2 align="center" class="opensans">Free and Open Source search platform.</h2>
+
+<div id="searchbar" class="topmargin center">
+  <form action="/search" method="GET">
+    <span class="icon-overlay gray-input">
+      <i class="icon-search"></i>
+    </span>
+    <input type="text" id="q" name="q" {{#query}}value="{{ query }}"{{/query}} placeholder="Search..." class="gray-input" tabindex="1"><button class="submit" type="submit" tabindex="1">Search <i class="icon-chevron-right"></i></button>
+    <div class="clearfix"></div>
+  </form>
+</div>
+
+<p align="center">Help us make an awesome search platform!</p>
+<p align="center">We welcome contributions and support. See the footer and get involved.</p>
