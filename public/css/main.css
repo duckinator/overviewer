@@ -116,8 +116,8 @@ p {
 }
 
 #header .inline-list li a:hover span {
-    text-decoration: none;
-    color: #dddddd;
+		text-decoration: none;
+		color: #dddddd;
 }
 
 #header {
@@ -126,9 +126,9 @@ p {
 	background: #166491;
 	position: relative;
 	line-height: 40px;
-  -moz-box-shadow: 0 2px 2px #888888;
-  -webkit-box-shadow: 0 2px 2px #888888;
-  box-shadow: 0 2px 2px #888888;
+	-moz-box-shadow: 0 2px 2px #888888;
+	-webkit-box-shadow: 0 2px 2px #888888;
+	box-shadow: 0 2px 2px #888888;
 }
 
 #header .constraint {
@@ -162,12 +162,7 @@ p {
 	width: 100%;
 	font-size: 0.8em;
 	border-top: 1px solid #ccc;
-}
-
-@media(min-width: 960px) {
-	#footer li.copyright {
-		float: right;
-	}
+	/* modified in @media(min-width: 960px) */
 }
 
 .inline-list {
@@ -221,6 +216,8 @@ p {
 	background: white;
 	border: 1px solid lightgrey;
 	max-width: 620px;
+
+	/* modified in @media(min-width: 960px) */
 }
 
 #searchbar .icon-search {
@@ -268,7 +265,7 @@ button {
 	padding: 5px;
 	background: lightgrey;
 	border: 1px solid black;
-  border-left: none;
+	border-left: none;
 }
 
 .icon-overlay .icon-search {
@@ -276,34 +273,64 @@ button {
 }
 
 .gray-input {
-    color: #333333;
+		color: #333333;
 }
 
 #searchbar.topmargin { margin-top: 15px; }
 .center {
-    text-align: center;
-    margin: 0 auto;
+		text-align: center;
+		margin: 0 auto;
 }
 
 .opensans { font-family: 'Open Sans', sans-serif; }
 h1.opensans {
-    font-weight: 400;
-    font-size: 3em;
-    letter-spacing: -3px;
+		font-weight: 400;
+		font-size: 3em;
+		letter-spacing: -3px;
 }
 h2.opensans {
-    font-weight: 300;
-    font-size: 1.5em;
-    letter-spacing: -1px;
-    color: #888888;
+		font-weight: 300;
+		font-size: 1.5em;
+		letter-spacing: -1px;
+		color: #888888;
 }
 
 @media(min-width: 960px) {
+	#footer li.copyright {
+		float: right;
+	}
+
 	h1.opensans {
 		font-size: 4em;
 	}
 
 	h2.opensans {
 		font-size: 1.9em;
+	}
+
+
+	/* Nicer search button */
+
+	#searchbar .search-wrap {
+		border-right: none; /* for .triangle-hack */
+	}
+
+	#searchbar .submit .triangle-hack {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: -1em;
+		width: 0;
+		height: 0;
+		border-color: transparent transparent transparent lightgray;
+		border-style: solid;
+		border-width: 1.05em 0 1.05em 1em;
+		margin-top: -1px;
+	}
+}
+
+@media(max-width: 680px) {
+	#searchbar .search-wrap {
+		margin-right: 1em;
 	}
 }
