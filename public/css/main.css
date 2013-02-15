@@ -124,16 +124,16 @@ p {
 	margin: 0;
 	border: none;
 	background: #166491;
-  background: -webkit-radial-gradient(circle, #3684B1 0%, #166491 100%);
-  background: -moz-radial-gradient(circle, #3684B1 0%, #166491 100%);
-  background: -ms-radial-gradient(circle, #3684B1 0%, #166491 100%);
-  background: -o-radial-gradient(circle, #3684B1 0%, #166491 100%);
-  background: radial-gradient(circle, #3684B1 0%, #166491 100%);
+	background: -webkit-radial-gradient(circle, #3684B1 0%, #166491 100%);
+	background: -moz-radial-gradient(circle, #3684B1 0%, #166491 100%);
+	background: -ms-radial-gradient(circle, #3684B1 0%, #166491 100%);
+	background: -o-radial-gradient(circle, #3684B1 0%, #166491 100%);
+	background: radial-gradient(circle, #3684B1 0%, #166491 100%);
 	position: relative;
 	line-height: 40px;
-  -moz-box-shadow: 0 1px 1px #888888;
-  -webkit-box-shadow: 0 1px 1px #888888;
-  box-shadow: 0 1px 1px #888888;
+	-moz-box-shadow: 0 1px 1px #888888;
+	-webkit-box-shadow: 0 1px 1px #888888;
+	box-shadow: 0 1px 1px #888888;
 }
 
 #header .constraint {
