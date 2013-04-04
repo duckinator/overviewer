@@ -1,11 +1,204 @@
-{{#query?}}
-Attempting to get overview for {{ query }}.
-{{/query?}}
+<style>
+.overviewer .constraint {
+  max-width: 100%;
+}
+
+.overviewer #main {
+  margin: 0;
+  padding: 0;
+}
+
+.overviewer #main > * {
+  padding: 1em 20px;
+}
+
+blockquote {
+	position: relative;
+
+	margin: 10px;
+
+	padding: 0 2.5em;
+
+	font-style: italic;
+}
+
+blockquote::before, blockquote::after {
+	position: absolute;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+blockquote::before {
+	content: '\201C';
+	margin-left: -1em;
+	margin-top: -0.2em;
+}
+
+blockquote::after {
+	content: '\201D';
+	right: 0.5em;
+}
+
+figure {
+	position: relative;
+}
+
+figcaption::before {
+	content: "\2014";
+}
+
+figcaption {
+	padding: 0;
+	margin: 0;
+	margin-left: 60px;
+	font-style: italic;
+}
+
+.footer {
+	font-size: 0.8em;
+	border-top: 1px solid black;
+	margin-top: 100px;
+	clear: both;
+}
+
+#left {
+	float: left;
+	width: 75%;
+}
+
+#related {
+	float: left;
+	width: 25%;
+	border: none;
+	border-left: 1px solid black;
+}
+
+#header {
+	margin: 0px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 0 10px;
+}
+
+#related {
+	background: #eee;
+}
+
+.category #related {
+	background: white;
+	float: none;
+	width: 100%;
+	border-left: none;
+}
+
+.related {
+	clear: both;
+	list-style: none;
+}
+
+.related .icon {
+	display: none;
+
+	float: left;
+	padding: 10px;
+	margin: 0;
+
+	height: 90px;
+	width: 90px;
+
+	text-align: center;
+}
+
+.category .related .icon {
+	display: inline-block;
+}
+
+.related .icon img {
+	outline: none;
+
+	max-height: 70px;
+	max-width: 70px;
+}
+
+.related .result {
+	display: inline-block;
+}
+
+.category .related .result {
+	display: inline;
+}
+</style>
+
+<div id="left">
+
+<div id="searchbar">
+  <form action="/overviewer" method="GET">
+    <div class="gray-input search-wrap">
+      <i class="icon-search"></i>
+      <input type="text" id="q" name="q" value="{{ query }}" placeholder="Search..." class="gray-input" tabindex="1"><button class="submit" type="submit" tabindex="1">Search <i class="icon-chevron-right"></i></button>
+    </div>
+    <div class="clearfix"></div>
+  </form>
+</div>
+
+
 
 {{^query?}}
 <p>Overviewer is a search engine, but with a slight twist. It is a search engine which, instead of giving lists of relevant links, will attempt to provide an overview of the term you search for.</p>
-<!--<p>Just enter a search term above and click "Search" to give it a try.</p>-->
+<p>Just enter a search term above and click "Search" to give it a try!</p>
 {{/query?}}
 
-<p>Inatri Overviewer is not yet implemented. Be sure to <a href="https://twitter.com/intent/follow?screen_name=_inatri" target="_blank">follow us on Twitter</a> for updates.</p>
+{{#query?}}
 
+<div id="summary">
+{{#abstract?}}
+<figure>
+	<blockquote>{{ abstract.text }}</blockquote>
+	<figcaption><a href="{{ abstract.url }}">{{ abstract.source }}</a></figcaption>
+</figure>
+{{/abstract?}}
+
+{{#links?}}
+<p>Relevant links:</p>
+<ul>
+{{#links.homepage  }}<li><a href="{{ links.homepage.href  }}">{{ name }} (homepage)</a>              {{/links.homepage  }}
+{{#links.wikipedia }}<li><a href="{{ links.wikipedia.href }}">{{ name }} on Wikipedia</a>            {{/links.wikipedia }}
+{{#links.map       }}<li><a href="{{ links.map.href       }}">{{ name }} on {{ links.map.name }}</a> {{/links.map      }}
+</ul>
+{{/links?}}
+
+{{^results?}}
+<p>Looks like there were no results for <em>{{ query }}</em>!</p>
+<p>If you think their should have been, why not <a href="https://twitter.com/_inatri">let us know on Twitter?</a></p>
+{{/results?}}
+
+</div>
+
+</div> <!-- #left -->
+
+{{#related?}}
+<div id="related">
+	<p>Related content:</p>
+	<ul>
+{{#related}}
+		<li class="related"><p class="icon"><img src="{{ image_source }}"></p><p class="result">{{{ result }}}</p></li>
+{{/related}}
+	</ul>
+</div>
+{{/related?}}
+
+{{/query?}}
+
+
+<div class="footer">
+Overviewer uses the following services:
+<ul>
+	<li><a href="http://duckduckgo.com">duckduckgo</a>: <a href="http://duckduckgo.com/api.html">Zero-click Info API</a>.</li>
+	<li><a href="http://bing.com">Bing&trade;</a>: <a href="https://datamarket.azure.com/dataset/5BA839F1-12CE-4CCE-BF57-A49D98D29A44">Bing&trade; Search API</a>.</li>
+	<li><a href="http://dbpedia.com">DBpedia</a>: <a href="http://wiki.dbpedia.org/OnlineAccess#h28-11">Linked Data sources</a>.</li>
+</ul>
+</div>
