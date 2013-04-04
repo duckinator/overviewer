@@ -14,9 +14,9 @@ class Inatri
         'overviewer'
       end
 
-      #def search?
-      #  true
-      #end
+      def search?
+        true
+      end
 
       def abstract?
         _ddg_fetch

@@ -1,17 +1,4 @@
 <style>
-.overviewer .constraint {
-  max-width: 100%;
-}
-
-.overviewer #main {
-  margin: 0;
-  padding: 0;
-}
-
-.overviewer #main > * {
-  padding: 1em 20px;
-}
-
 blockquote {
 	position: relative;
 
@@ -61,11 +48,6 @@ figcaption {
 	clear: both;
 }
 
-#left {
-	float: left;
-	width: 75%;
-}
-
 #related {
 	float: left;
 	width: 25%;
@@ -73,15 +55,8 @@ figcaption {
 	border-left: 1px solid black;
 }
 
-#header {
-	margin: 0px;
-	border: none;
-	border-bottom: 1px solid black;
-}
-
-#header h1 {
-	margin: 0;
-	padding: 0 10px;
+#related {
+  display: none;
 }
 
 #related {
@@ -89,7 +64,8 @@ figcaption {
 }
 
 .category #related {
-	background: white;
+  display: block;
+	background: transparent;
 	float: none;
 	width: 100%;
 	border-left: none;
@@ -133,20 +109,6 @@ figcaption {
 }
 </style>
 
-<div id="left">
-
-<div id="searchbar">
-  <form action="/overviewer" method="GET">
-    <div class="gray-input search-wrap">
-      <i class="icon-search"></i>
-      <input type="text" id="q" name="q" value="{{ query }}" placeholder="Search..." class="gray-input" tabindex="1"><button class="submit" type="submit" tabindex="1">Search <i class="icon-chevron-right"></i></button>
-    </div>
-    <div class="clearfix"></div>
-  </form>
-</div>
-
-
-
 {{^query?}}
 <p>Overviewer is a search engine, but with a slight twist. It is a search engine which, instead of giving lists of relevant links, will attempt to provide an overview of the term you search for.</p>
 <p>Just enter a search term above and click "Search" to give it a try!</p>
@@ -177,8 +139,7 @@ figcaption {
 {{/results?}}
 
 </div>
-
-</div> <!-- #left -->
+<div class="category"><!--hack-->
 
 {{#related?}}
 <div id="related">
@@ -190,6 +151,8 @@ figcaption {
 	</ul>
 </div>
 {{/related?}}
+
+</div><!--hack-->
 
 {{/query?}}
 
