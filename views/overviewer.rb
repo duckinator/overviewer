@@ -10,10 +10,6 @@ class Inatri
         @query || false
       end
 
-      def section
-        'overviewer'
-      end
-
       def search?
         true
       end

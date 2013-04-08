@@ -14,6 +14,10 @@ class Inatri < Sinatra::Application
     mustache :index
   end
 
+  get '/about' do
+    mustache :about
+  end
+
   get '/search' do
     @query = params[:q]
     mustache :search

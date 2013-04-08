@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>{{#title}}{{title}} &mdash; {{/title}}{{ site }}{{#section}} {{ section }}{{/section}}</title>
+<title>{{#title}}{{title}} &mdash; {{/title}}{{#title_prefix}}{{ title_prefix }} {{/title_prefix}}{{ site }}</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,18 +25,30 @@
 <div id="header">
   <div class="constraint">
     <h1><a href="/">{{ site }}.</a></h1>
-    <ul class="sections inline-list exo">
-      <li><a href="/search" class="never-underline"><i class="icon-search"></i><span>search</span></a></li>
-      <li><a href="/overviewer" class="never-underline"><i class="icon-list-ul"></i><span>overviewer</span></a></li>
-    </ul>
+    <div id="nav">
+      <span class="nav-toggle"><a href="#nav" class="nav-show"><i class="icon-list"></i></a><a href="#" class="nav-hide"><i class="icon-list"></i></a></span>
+      <ul class="sections inline-list exo">
+        <li><a href="/about" class="never-underline"><i class="icon-info-sign"></i><span>about</span></a></li>
+        <li><a href="/overviewer" class="never-underline"><i class="icon-search"></i><span>overviewer</span></a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
 <div id="main" class="constraint">
 
+{{#index?}}
+{{! This is here instead of templates/index to avoid having to duplicate the search box. }}
+<div class="description">
+  <h1 align="center" class="exo">Search freely.</h1>
+  <h2 align="center" class="exo">Free and Open Source search platform.</h2>
+</div>
+{{/index?}}
+
+
 {{#search?}}
 <div id="searchbar">
-  <form action="{{ search_submit_url }}" method="GET">
+  <form action="{{ overviewer_submit_url }}" method="GET">
     <div class="gray-input search-wrap">
       <i class="icon-search"></i>
       <input type="text" id="q" name="q" {{#query}}value="{{ query }}"{{/query}} placeholder="Search..." class="gray-input" tabindex="1"><button class="submit" type="submit" tabindex="1">Search <i class="icon-chevron-right"></i></button>
@@ -48,17 +60,6 @@
 
 {{{ yield }}}
 
-</div>
-
-<div id="footer">
-  <ul class="inline-list constraint">
-    <li><a href="irc://irc.freenode.net/inatri"><i class="icon-comments"></i><span>#inatri (Freenode)</span></a></li>
-    <li><a href="/+"><i class="icon-google-plus"></i><span>Google+</span></a></li>
-    <li><a href="https://twitter.com/_inatri"><i class="icon-twitter"></i><span>Twitter</span></a></li>
-    <li><a href="https://github.com/inatri"><i class="icon-github"></i><span>GitHub</span></a></li>
-    <li><a href="mailto:support@inatri.com"><i class="icon-envelope"></i><span>support@inatri.com</span></a></li>
-    <li class="copyright">&copy; 2012 Nick Markwell.</li>
-  </ul>
 </div>
 
 

@@ -1,10 +1,8 @@
 class Inatri
   module Views
-    class Search < Layout
-      attr_accessor :query
-
-      def title
-        @query || false
+    class About < Layout
+      def title_prefix
+        'About'
       end
 
       def search?

@@ -13,15 +13,25 @@ class Inatri
         @query && @query.is_a?(String) && !@query.empty?
       end
 
+      # In Inatri::Views::Layout this would return 'layout',
+      # in Inatri::Views::Index this would return 'index', etc
       def section
+        self.class.name.split(':').last.downcase
+      end
+
+      def title_prefix
         nil
       end
 
-      def search_submit_url
-        '/' + section
+      def overviewer_submit_url
+        '/overviewer'
       end
 
       def search?
+        true
+      end
+
+      def index?
         false
       end
     end
