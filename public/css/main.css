@@ -337,6 +337,10 @@ h2.subtitle {
         cursor: auto;
     }
 
+    :target .sections li:first-child a {
+        border-top: none;
+    }
+
     #header .sections li, :target .sections li a {
         display: inline-block;
         border: none;
