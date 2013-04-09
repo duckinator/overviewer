@@ -103,7 +103,7 @@ p {
 }
 
 #header a {
-    color: black;
+    color: #333;
 }
 
 #header .constraint {
@@ -246,7 +246,7 @@ input[type=text] {
     margin: 0;
     padding: 5px;
     background: white;
-    border: 1px solid black;
+    border: 1px solid #333;
 }
 
 input::-moz-focus-inner {
@@ -263,7 +263,7 @@ button {
     margin: 0;
     padding: 5px;
     background: lightgrey;
-    border: 1px solid black;
+    border: 1px solid #333;
     border-left: none;
 }
 
@@ -303,6 +303,16 @@ h2.subtitle {
 
     #header {
         text-align: right;
+    }
+
+    #header a {
+        background: transparent;
+    }
+
+    #header a:hover, #header a:focus,
+    #header :target .nav-toggle a {
+        background: transparent;
+        color: #666;
     }
 
     #header h1, #header .sections {
