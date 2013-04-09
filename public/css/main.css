@@ -167,9 +167,6 @@ p {
 
 :target .sections li a {
     display: block;
-    text-align: left;
-    width: 100%;
-    min-height: 40px;
     border-bottom: 1px solid lightgrey;
 }
 
@@ -184,7 +181,6 @@ p {
 .inline-list li {
     display: inline-block;
     margin: 0;
-    padding-right: 1em;
 }
 
 a, .has-icons a:hover {
@@ -344,7 +340,8 @@ h2.subtitle {
     #header .sections li, :target .sections li a {
         display: inline-block;
         border: none;
-    }
+        padding-right: 1em;
+   }
 
     .sections li, .sections li:hover, .sections li:focus {
         color: inherit;
