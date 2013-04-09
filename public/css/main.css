@@ -169,7 +169,7 @@ p {
     display: block;
     text-align: left;
     width: 100%;
-    min-height: 50px;
+    min-height: 40px;
     border-bottom: 1px solid lightgrey;
 }
 
@@ -352,7 +352,6 @@ h2.subtitle {
     }
     :target .sections li {
         width: auto;
-        min-height: auto;
         border-bottom: none;
     }
 
