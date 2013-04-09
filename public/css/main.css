@@ -340,8 +340,11 @@ h2.subtitle {
     #header .sections li, :target .sections li a {
         display: inline-block;
         border: none;
-        padding-right: 1em;
    }
+
+    .sections li a {
+        padding-right: 1em;
+    }
 
     .sections li, .sections li:hover, .sections li:focus {
         color: inherit;
