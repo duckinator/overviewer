@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /search
+Disallow: /overviewer
+Allow: /search$
+Allow: /overviewer$
