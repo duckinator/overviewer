@@ -47,19 +47,12 @@ class Inatri
         @title   = ddg.title
         @name    = ddg.name
         @query   = ddg.query
-puts 'meep'
-pp @query
-pp @summary
+
         if @query && !@query.empty? && !@summary.empty?
-puts '?'
           @wikipedia = @article
 
           if @wikipedia
             dbp = DBPedia.new(@article, @type)
-
-        puts;puts
-        pp dbp.test
-        puts;puts
 
             @title = @name = dbp.name if dbp.name.is_a?(String)
 
@@ -69,7 +62,7 @@ puts '?'
             @summary_source_name = 'Wikipedia'
 
             @homepage = dbp.homepage
-pp @homepage
+
             @geo_lat  = dbp.geo_lat
             @geo_long = dbp.geo_long
             @geo_full = dbp.geo_full
