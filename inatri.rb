@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'mustache/sinatra'
 
+$: << File.join(File.dirname(__FILE__), 'lib')
+
 class Inatri < Sinatra::Application
   register Mustache::Sinatra
   require './views/layout'
@@ -20,11 +22,13 @@ class Inatri < Sinatra::Application
 
   get '/search' do
     @query = params[:q]
+    @type  = params[:type]
     mustache :search
   end
 
   get '/overviewer' do
     @query = params[:q]
+    @type  = params[:type]
     mustache :overviewer
   end
 end

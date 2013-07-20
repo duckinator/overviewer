@@ -1,16 +1,22 @@
 class Inatri
   module Views
     class Layout < Mustache
-      def site
-        'Inatri'
-      end
+      attr_accessor :site, :type, :title
 
-      def title
-        @title
+      def initialize(*args)
+        super(*args)
+
+        @site  = 'Inatri'
+        @title = nil
+        @type  = nil
       end
 
       def query?
         @query && @query.is_a?(String) && !@query.empty?
+      end
+
+      def category?
+        @type == "category"
       end
 
       # In Inatri::Views::Layout this would return 'layout',

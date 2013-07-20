@@ -1,107 +1,107 @@
-require 'dbpedia'
-require 'duck_duck_go'
+require 'inatri/duckduckgo'
+require 'inatri/dbpedia'
+require 'pp'
 
 class Inatri
   module Views
     class Overviewer < Layout
-      attr_accessor :query, :abstract, :links, :related
+      attr_accessor :query, :abstract, :links, :related, :name, :title
 
       def title
-        @query || false
+        @title || @query
       end
 
       def search?
         true
       end
 
-      def abstract?
-        _ddg_fetch
+      def abstract?  
+        fetch!
 
         !!@abstract
       end
 
       def links?
-        _ddg_fetch
+        fetch!
 
         !!@links
       end
 
       def related?
-        _ddg_fetch
+        fetch!
 
         !!@related
       end
 
       # Fetch from DuckDuckGo
-      def _ddg_fetch
+      def fetch!
         return if @fetched
         @fetched = true
 
-        ddg = DuckDuckGo.new
-        zci = ddg.zeroclickinfo(@query)
+        ddg = DDG.new(@query)
 
-        @abstract = {
-          text:   zci.abstract_text,
-          url:    zci.abstract_url,
-          source: zci.abstract_source,
-        }
+        @summary = ddg.summary
+        @related = ddg.related
+        @type    = ddg.type
+        @article = ddg.article
+        @title   = ddg.title
+        @name    = ddg.name
+        @query   = ddg.query
+puts 'meep'
+pp @query
+pp @summary
+        if @query && !@query.empty? && !@summary.empty?
+puts '?'
+          @wikipedia = @article
 
-        @abstract = nil if @abstract[:text].nil? || @abstract[:text].empty?
+          if @wikipedia
+            dbp = DBPedia.new(@article, @type)
 
-        topics = zci.related_topics["_"]
+        puts;puts
+        pp dbp.test
+        puts;puts
 
-        @related = _format_related(topics) if topics
+            @title = @name = dbp.name if dbp.name.is_a?(String)
+
+            @wp_url = dbp.url
+            @summary = dbp.summary || dbp.comment
+            @summary_source_url  = dbp.url
+            @summary_source_name = 'Wikipedia'
+
+            @homepage = dbp.homepage
+pp @homepage
+            @geo_lat  = dbp.geo_lat
+            @geo_long = dbp.geo_long
+            @geo_full = dbp.geo_full
+
+            if @geo_lat && @geo_long
+              @map_url = "https://maps.google.com/maps?q=#{CGI.escape(query)}&sll=#{@geo_lat},#{@geo_long}"
+              @map_site_name = 'Google Maps'
+            end
+
+            # @links is an or'd (||) list of URLs,
+            # so it's truthy if there's a URL to show.
+            @links = {
+              'homepage'  => {
+                'href' => @homepage,
+              },
+              'wikipedia' => {
+                'href' => @wp_url,
+              },
+              'map' => {
+                'href' => @map_url,
+                'name' => @map_site_name,
+              },
+            }
+          else
+            # Not using this since we can't guarantee it's properly attributed.
+            @noresults = true
+            #@raw_summary = summary
+          end
+        end
+
+        @type = 'category' if @summary.nil? || @summary.empty?
       end
-
-      def _format_related(topics)
-        handle_topics(query, topics, @category ? 'category' : nil)
-      end
-
-
-
-  def handle_topics(query, topics, type)
-    ret = []
-
-    topics.each do |topic|
-      if topic.is_a?(Hash) && topic.include?('Topics')
-        # This returns something of the format:
-        # {"Topics"=>
-        #   [{"Result"=>
-        #      ...},
-        #    <snip>
-        #    {"Result"=>
-        #      ...}],
-        #  "Name"=>"Category"}
-        #
-        # This should probably use 'Name', but it doesn't for now.
-        ret += handle_topics(query, topic.topics, type)
-        next
-      end
-
-      icon = topic.icon
-      result = topic.result
-
-      result.gsub!('<a href="http://duckduckgo.com/c/', '<a href="/overviewer?type=category&amp;q=')
-      result.gsub!('<a href="http://duckduckgo.com/', '<a href="/overviewer?q=')
-      result.gsub!('_','+')
-
-      result.gsub!('?q=?q=', '?q=') # Is this because of 3 lines up?
-
-      result_query = result.split('<a href="')[-1].split('">')[0]
-
-      query_hash = CGI::parse(URI.parse(URI.encode(result_query)).query)
-      result_type = (query_hash['type'] || ['']).last
-
-      if (CGI.escape(query).downcase == result_query.downcase) && (result_type == type)
-        next
-      end
-
-      ret << { icon: icon.url, result: result }
-    end
-
-    ret
-  end
-
     end
   end
 end
