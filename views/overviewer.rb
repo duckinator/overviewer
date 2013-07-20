@@ -90,7 +90,7 @@ pp @homepage
               },
               'map' => {
                 'href' => @map_url,
-                'name' => @map_site_name,
+                'site_name' => @map_site_name,
               },
             }
           else
