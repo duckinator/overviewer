@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Inatri</ShortName>
+  <Description>Inatri Overviewer</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <!--<Image height="16" width="16" type="image/x-icon">http://inatri.com/favicon.ico</Image>-->
+
+  <!-- Normal searches via Overviewer. -->
+  <Url type="text/html" method="GET" template="http://inatri.com/overviewer">
+    <Param name="q" value="{searchTerms}"/>
+  </Url>
+
+  <!-- Auto-update of opensearch.xml, -->
+  <Url type="application/opensearchdescription+xml"
+       rel="self"
+       template="http://inatri.com/opensearch.xml" />
+
+  <!-- Autocomplete requests. Overviewer's not good enough to offer this yet. :( -->
+<!--
+  <Url type="application/x-suggestions+json" method="GET" template="http://inatri.com/overviewer/autocomplete">
+    <Param name="q" value="{searchTerms}"/>
+  </Url>
+-->
+
+  <!-- We treat Firefox's keyword search (from address bar) the same as a normal search. -->
+  <Url type="application/x-moz-keywordsearch" method="GET" template="http://inatri.com/overviewer">
+    <Param name="q" value="{searchTerms}"/>
+  </Url>
+
+  <moz:SearchForm>http://inatri.com</moz:SearchForm>
+</OpenSearchDescription>
