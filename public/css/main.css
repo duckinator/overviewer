@@ -204,7 +204,7 @@ i[class^="icon-"] {
 
 #searchbar {
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 #searchbar form > * {
