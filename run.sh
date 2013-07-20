@@ -1,1 +1,1 @@
-rackup -p 8000
+rackup -p 8000 -E none
