@@ -131,8 +131,8 @@ class DDG
       icon = topic['Icon']
       result = topic['Result']
 
-      result.gsub!('<a href="http://duckduckgo.com/c/', '<a href="/overviewer?type=category&amp;q=')
-      result.gsub!('<a href="http://duckduckgo.com/', '<a href="/overviewer?q=')
+      result.gsub!('<a href="https://duckduckgo.com/c/', '<a href="/overviewer?type=category&amp;q=')
+      result.gsub!('<a href="https://duckduckgo.com/', '<a href="/overviewer?q=')
       result.gsub!('_','+')
 
       result_query = result.split('<a href="')[-1].split('">')[0]
